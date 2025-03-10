@@ -1,0 +1,426 @@
+Odgovorite na sljedeća pitanja:
+
+1. Odrediti podatke korisničkog računa s kojim ste se spojili na linux.etfos.hr: 
+
+korisničko ime: student05
+
+oznaka polja za zaporku (najčešće znakovi 'x' ili '!'): x
+user identification (UID) number: 12666
+
+group membership (GID) number: 2000
+
+korisnički podaci: Student05 FERIT,Kampus,2. godina,Preddiplomski sveucilisni studij
+
+putanja korisničkog (home) direktorija: /home/stud/student05
+
+oznaka ljuske: /bin/bash
+
+2. Pozicionirajte se u /proc direktorij. Proučite sadržaj direktorija i pronađite datoteku u kojoj se nalaze sljedeće informacije: 
+
+a. Koje particije čine datotečni sustav poslužitelja?
+student05@linux:/proc$ cat partitions
+
+
+ 2        0          4 fd0
+  11        0    1048575 sr0
+   8        0   52428800 sda
+   8        1   50254848 sda1
+   8        2          1 sda2
+   8        5    2170880 sda5
+
+
+b. Koliko vremena poslužitelj radi (uptime)?
+student05@linux:/proc$ cat uptime
+
+10797075.85 512782.49
+
+
+c. Koji procesor se nalazi u poslužitelju? Navedite ime modela, frekvenciju takta i broj jezgri.
+
+student05@linux:/proc$ lscpu
+Architecture:          i686
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                1
+On-line CPU(s) list:   0
+Thread(s) per core:    1
+Core(s) per socket:    1
+Socket(s):             1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 45
+Model name:            Intel(R) Xeon(R) CPU E5-2403 0 @ 1.80GHz
+Stepping:              7
+CPU MHz:               1795.672
+BogoMIPS:              3591.34
+Hypervisor vendor:     Microsoft
+Virtualization type:   full
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              10240K
+
+
+3. Korištenjem naučenih naredbi za jednostavno kretanje kroz datotečni sustav, odgovorite na sljedeća pitanja: 
+
+a. Na koji način možete odrediti direktorij u kojem se nalazite?
+
+student05@linux:~$ pwd/home/stud/student05
+Naredba pwd
+b. Pokrenite naredbu cd bez dodatnih opcija i zaključite gdje vas je to odvelo. Ako se trenutno nalazimo u direktoriju /home/student50/dir1 i želimo otići u direktorij /home/student50, koji prečac možemo koristiti? 
+
+student05@linux:~$ cd dir1
+student05@linux:~/dir1$ cd ..
+student05@linux:~$
+
+Naredba cd nas vraca u root direktorij
+Koristimo precac ..
+
+c. Koristeći relativnu putanju izlistati u dugom obliku sadržaj direktorija dir1. Navesti izlistane direktorije i izlistane datoteke. Koje su skrivene? 
+
+dir11
+dir12
+file1.txt
+
+.
+..
+dir11
+dir12
+.file0.txt
+file1.txt
+
+Skrivene su koje počinju sa . i ..
+
+
+d. Pokrenite naredbu ls s opcijama –R, -r i –t i opišite dobiveni izlaz. Koju
+
+naredbu možemo koristiti za prikaz skrivenih datoteka?
+
+student05@linux:~$ ls -R
+.:
+a1.txt              brojke.txt  datoteka1.txt  dir2  firstfit    jedan       lv1.txt     zad    zad10.c   zad11.c  zad14.c  zad16    Zad1.c     zad1LV9.c       Zad2     zad2.c   zad2LV8.c   zadatak1.c.save  zad.c      zad.drugi.c
+a.txt               b.txt       datoteka2.txt  dva   firstfit.c  linux1.txt  test.txt    zad1   zad11     zad12.c  zad15    zad16.c  zad1LV8    zad1lv9.c.save  zad20    Zad2.c   zadatak1    zadatak2         zaddrugi   zaddrugi.c
+beskonacni_program  c.txt       dir1           file  head_tail   linux.txt   worstfit.c  zad10  zad111.c  zad14    zad15.c  zad1.c   zad1lv9.c  zad2            zad20.c  zad2LV8  zadatak1.c  zadatak2.c       zad.drugi
+
+./dir1:
+dir11  dir12  file1.txt
+
+./dir1/dir11:
+file11.txt
+
+./dir1/dir12:
+
+./dir2:
+
+./file:
+cli.cpp  probni.exe  probni.tar  probni.txt  SlikaTelop.gif  SlikaTelop.jpg
+
+
+student05@linux:~$ ls -r
+zaddrugi.c   zaddrugi    zadatak2         zadatak1   Zad2.c   zad20  zad1lv9.c.save  zad1LV8  zad16.c  zad15    zad12.c   zad11    zad1        test.txt   linux1.txt  firstfit.c  dva   datoteka2.txt  b.txt               a.txt
+zad.drugi.c  zad.c       zadatak1.c.save  zad2LV8.c  zad2.c   Zad2   zad1LV9.c       Zad1.c   zad16    zad14.c  zad11.c   zad10.c  zad         lv1.txt    jedan       firstfit    dir2  datoteka1.txt  brojke.txt          a1.txt
+zad.drugi    zadatak2.c  zadatak1.c       zad2LV8    zad20.c  zad2   zad1lv9.c       zad1.c   zad15.c  zad14    zad111.c  zad10    worstfit.c  linux.txt  head_tail   file        dir1  c.txt          beskonacni_program
+
+student05@linux:~$ ls -t
+lv1.txt     head_tail   linux.txt           datoteka2.txt  b.txt     zad1lv9.c.save  zad2LV8.c  zadatak1  zad16    zad15.c  zad12.c   zad20.c  zad11    zaddrugi     zad.drugi        zadatak1.c  zad2  Zad2.c      firstfit.c  dir1
+a1.txt      jedan       beskonacni_program  dva            c.txt     zad1lv9.c       zad1LV8    zad.c     zad16.c  zad14    zad111.c  zad10    zad11.c  zaddrugi.c   zad2.c           zadatak2    zad1  worstfit.c  Zad1.c      dir2
+brojke.txt  linux1.txt  datoteka1.txt       a.txt          test.txt  zad2LV8         zad1LV9.c  zad       zad15    zad14.c  zad20     zad10.c  zad1.c   zad.drugi.c  zadatak1.c.save  zadatak2.c  Zad2  firstfit    file
+
+naredbu -a  mozemo koristiti za pristup skrivenim datotekama
+
+4. Korištenjem naučenih naredbi za jednostavan rad s datotekama, odgovorite na sljedeća pitanja:
+
+a. Pokrenite naredbu file za nekoliko različitih direktorija i datoteka i opišite dobiveni izlaz. 
+
+student05@linux:~$ file dir1
+dir1: directory
+student05@linux:~$ file zad.c
+zad.c: C source, UTF-8 Unicode text
+student05@linux:~$ file dva
+dva: ASCII text
+
+Ispisuje trazeni direktorij unutar dostupnih datoteka
+
+b. Pokrenite naredbu cat na različitim datotekama i direktorijima. Zatim pokušajte spojiti više datoteka u naredbi. Opišite dobivene izlaze.
+
+student05@linux:~$ cat dva
+dva
+tri
+student05@linux:~$ cat jedan
+jedan
+dva
+tri
+
+student05@linux:~$ cat jedan dva
+jedan
+dva
+tri
+dva
+tri
+
+Izlaz izlistava obje datoteke u isto vrijeme te daje ispis spojene jedne i druge datoteke
+
+c. Kreirajte novu datoteku oblika <ime.prezime> u vašem home (cd ~) direktoriju. Preimenujte datoteku u oblik <prezime.ime>.
+
+student05@linux:~$ touch filip.biberovic
+student05@linux:~$ ls -1
+a1.txt
+a.txt
+beskonacni_program
+brojke.txt
+b.txt
+c.txt
+datoteka1.txt
+datoteka2.txt
+dir1
+dir2
+dva
+file
+filip.biberovic
+firstfit
+firstfit.c
+head_tail
+jedan
+linux1.txt
+linux.txt
+lv1.txt
+test.txt
+worstfit.c
+zad
+zad1
+zad10
+zad10.c
+zad11
+zad111.c
+zad11.c
+zad12.c
+zad14
+zad14.c
+zad15
+zad15.c
+zad16
+zad16.c
+zad1.c
+Zad1.c
+zad1LV8
+zad1lv9.c
+zad1LV9.c
+zad1lv9.c.save
+zad2
+Zad2
+zad20
+zad20.c
+zad2.c
+Zad2.c
+zad2LV8
+zad2LV8.c
+zadatak1
+zadatak1.c
+zadatak1.c.save
+zadatak2
+zadatak2.c
+zad.c
+zaddrugi
+zad.drugi
+zad.drugi.c
+zaddrugi.c
+
+student05@linux:~$ mv filip.biberovic biberovic.filip
+student05@linux:~$ ls -1
+a1.txt
+a.txt
+beskonacni_program
+biberovic.filip
+brojke.txt
+b.txt
+c.txt
+datoteka1.txt
+datoteka2.txt
+dir1
+dir2
+dva
+file
+firstfit
+firstfit.c
+head_tail
+jedan
+linux1.txt
+linux.txt
+lv1.txt
+test.txt
+worstfit.c
+zad
+zad1
+zad10
+zad10.c
+zad11
+zad111.c
+zad11.c
+zad12.c
+zad14
+zad14.c
+zad15
+zad15.c
+zad16
+zad16.c
+zad1.c
+Zad1.c
+zad1LV8
+zad1lv9.c
+zad1LV9.c
+zad1lv9.c.save
+zad2
+Zad2
+zad20
+zad20.c
+zad2.c
+Zad2.c
+zad2LV8
+zad2LV8.c
+zadatak1
+zadatak1.c
+zadatak1.c.save
+zadatak2
+zadatak2.c
+zad.c
+zaddrugi
+zad.drugi
+zad.drugi.c
+zaddrugi.c
+
+
+d. Kreirajte novi direktorij u vašem home direktoriju. Možete li premjestiti vaš novi direktorij na razinu na kojoj je i /home direktorij? Kopirajte cijeli sadržaj iz direktorija dir1 u vaš novi direktorij. Izlistajte sadržaj novog direktorija sortiran po obrnutom abecednom redoslijedu. 
+student05@linux:~$ mkdir dir88
+student05@linux:~$ ls -1
+a1.txt
+a.txt
+beskonacni_program
+biberovic.filip
+brojke.txt
+b.txt
+c.txt
+datoteka1.txt
+datoteka2.txt
+dir1
+dir2
+dir88
+dva
+file
+firstfit
+firstfit.c
+head_tail
+jedan
+linux1.txt
+linux.txt
+lv1.txt
+test.txt
+worstfit.c
+zad
+zad1
+zad10
+zad10.c
+zad11
+zad111.c
+zad11.c
+zad12.c
+zad14
+zad14.c
+zad15
+zad15.c
+zad16
+zad16.c
+zad1.c
+Zad1.c
+zad1LV8
+zad1lv9.c
+zad1LV9.c
+zad1lv9.c.save
+zad2
+Zad2
+zad20
+zad20.c
+zad2.c
+Zad2.c
+zad2LV8
+zad2LV8.c
+zadatak1
+zadatak1.c
+zadatak1.c.save
+zadatak2
+zadatak2.c
+zad.c
+zaddrugi
+zad.drugi
+zad.drugi.c
+zaddrugi.c
+
+student05@linux:~$ cp -r dir1/* dir88/
+student05@linux:~$ ls -r dir88
+file1.txt  dir12  dir11
+
+5. Korištenjem naučenih naredbi za jednostavno pretraživanje rječnika, odgovorite na sljedeća pitanja:
+
+a. Proučiti naredbu passwd u prvoj i petoj sekciji. Koje područje upotrebe naredbe passwd opisuju pojedine sekcije?
+
+Naredbom passwd moguće je promijeniti korisničku zaporku. Administrator ne može pročitati
+ali može promijeniti bilo koju zaporku
+
+
+b. Izlistati sve naredbe koje u sebi sadržavaju pojam ssh. Koja su dva načina da se to učini? 
+
+student05@linux:~$ man -k ssh
+authorized_keys (5)  - OpenSSH SSH daemon
+rlogin (1)           - OpenSSH SSH client (remote login program)
+rsh (1)              - OpenSSH SSH client (remote login program)
+slogin (1)           - OpenSSH SSH client (remote login program)
+ssh (1)              - OpenSSH SSH client (remote login program)
+ssh-add (1)          - adds private key identities to the authentication agent
+ssh-agent (1)        - authentication agent
+ssh-argv0 (1)        - replaces the old ssh command-name as hostname handling
+ssh-copy-id (1)      - use locally available keys to authorise logins on a remote machine
+ssh-keygen (1)       - authentication key generation, management and conversion
+ssh-keyscan (1)      - gather ssh public keys
+ssh-keysign (8)      - ssh helper program for host-based authentication
+ssh-pkcs11-helper (8) - ssh-agent helper program for PKCS#11 support
+ssh_config (5)       - OpenSSH SSH client configuration files
+sshd (8)             - OpenSSH SSH daemon
+sshd_config (5)      - OpenSSH SSH daemon configuration file
+
+
+c. Koje opcije ls naredbe omogućuju sortiranje ispisa sadržaja direktorija prema vremenu modifikacije datoteke te prema veličini datoteke?
+
+-t sortiranje prema vremenu
+-It prema vremenu u obrnutom smjeru
+-S prema velicini u obrnutom smjeru
+-IS prema velicini u obrnutom smjeru 
+
+d. Pomoću naredbe man proučiti dodatne mogućnosti naredbi cp i mv te navesti barem 3 dodatne mogućnosti za svaku.
+
+
+student05@linux:~$ man cp
+
+ -f, --force
+              if an existing destination file cannot be opened, remove it and try again (this option is ignored when the -n option is also used)
+
+       -i, --interactive
+              prompt before overwrite (overrides a previous -n option)
+
+       -H     follow command-line symbolic links in SOURCE
+
+       -l, --link
+              hard link files instead of copying
+
+student05@linux:~$ man mv
+
+ -S, --suffix=SUFFIX
+              override the usual backup suffix
+
+       -t, --target-directory=DIRECTORY
+              move all SOURCE arguments into DIRECTORY
+
+       -T, --no-target-directory
+              treat DEST as a normal file
+
+
+
+
