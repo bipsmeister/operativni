@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Prvi LV</title>
+
+    </head>
+    <body>
+        <h1><a href = "zad1.html"> OBRAZAC</a></h1>
+       <form>
+        <label for = "korisnicko_ime">Korisničko ime:</label><br>
+        <input type = "text" id = "korisnicko_ime" name = "korisnicko_ime" placeholder="Unesite ime" size="15"><br>
+
+        <label for = "lozinka">Lozinka</label><br>
+        <input type ="password" id = "lozinka" placeholder="Unesite lozinku" size="15"><br>
+
+    <label for="ocjena">Ocjena:</label><br>
+    <select id="ocjena" name="ocjena">
+      <option value="1">Nedovoljan</option>
+      <option value="2">Dovoljan</option>
+      <option value="3">Dobar</option>
+      <option value="4">Vrlo dobar</option>
+      <option value="5">Izvrstan</option>
+    </select>
+
+    <br><label for="w3review">Komentar:</label><br>
+
+    <textarea id="komentar" name="komentar" placeholder="Unesite komentar" rows="7" cols="40" ></textarea>
+
+
+    <p>Usmena ocjena studenta:</p>
+    <input type="radio" id="komunikativan" name="usmena_ocjena" value="komunikativan">
+    <label for="komunikativan">Komunikativan</label><br>
+
+    <input type="radio" id="samostalan" name="usmena_ocjena" value="samostalan">
+    <label for="samostalan">Samostalan</label><br>
+
+    <input type="radio" id="radisan" name="usmena_ocjena" value="radisan">
+    <label for="radisan">Radišan</label><br>
+
+    <input type="radio" id="nista" name="usmena_ocjena" value="nista" checked>
+    <label for="nista">Ništa od navedenog</label><br><br>
+
+     <table>
+      <tr>
+        <td><input type="submit" value="Pošalji"></td>
+      </tr>
+      <tr>
+        <td><input type="reset" value="Poništi"></td>
+      </tr>
+     </table>
+       </form>
+ 
+    </body>
+</html>
