@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Prvi LV </title>
+
+    </head>
+    <header>
+        <h1>PRVA LABORATORIJSKA VJEŽBA</h1>
+        <nav>
+            <ul>
+                <li><a href = "zad1.html">Početna</a></li>
+                <li><a href = "zadatak2_FilipBiberovic.html">Drugi zadatak</a></li>
+                <li><a href = "https://www.ferit.unios.hr/" target = "_blank">FERIT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+
+        
+        <h2>Prvi članak</h2>
+        <figure>
+            <img src="150x150.png" alt="Slika" width = "150" height = "150">
+            
+            <figcaption>Opis slike 1</figcaption>
+        </figure>
+        <section>
+            <div>Ovo je sadržaj prvog odjeljka prvog članka</div>
+            <div>Ovo je sadržaj drugog odjeljka prvog članka</div>
+        </section>
+        </article>
+
+        <h2>Drugi članak</h2>
+        <figure>
+            <img src="150x150.png" alt="Slika" width = "150" height = "150">
+            
+            <figcaption>Opis slike 2</figcaption>
+        </figure>
+        <section>
+            <div>Ovo je sadržaj prvog odjeljka drugog članka</div>
+            <div>Ovo je sadržaj drugog odjeljka drugog članka</div>
+        </section>
+        </article>
+
+        <h2>Treći članak</h2>
+        <figure>
+            <img src="150x150.png" alt="Slika" width = "150" height = "150">
+            
+            <figcaption>Opis slike 3</figcaption>
+        </figure>
+        <section>
+            <div>Ovo je sadržaj prvog odjeljka prvog članka</div>
+            <div>Ovo je sadržaj drugog odjeljka prvog članka</div>
+        </section>
+        </article>
+
+        <aside>
+            <h4>Naslov u ASIDEu</h4>
+        </aside>
+        <article>
+            <h1>Naslov H1</h1>
+            <a href = "https://moodle.srce.hr/">Merlin</a>
+            <table border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">Row 1 Cell 1</td>
+                    <td>Row 1 Cell 2 </td>
+                    <td>Row 1 Cell 3</td>
+                </tr>
+                <tr>
+                    <td>Row 2 Cell 2</td>
+                    <td>Row 2 Cell 3</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Row 3 Cell 1</td>
+                </tr>
+            </table>
+        </article>
+
+    </main>
+    <footer>
+        <p>Kada je stranica gotova pozovite izvođača na pregled</p>
+    </footer>
+</html>
